@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+Submit Appointment
+{% endblock title %}
+
+{% block content %}
+
+
+    <div class = "container w-30 card p-4 mt-4">
+    
+        <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type = "submit" value = "Request" class = "w-100 text-white text-center my-2 btn btn-info">
+        </form>
+    </div>
+    
+    
+
+{% endblock content %}
+  

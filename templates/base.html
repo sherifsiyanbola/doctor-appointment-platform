@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<title>
+Doctor Appointment Platform
+</title>
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static './css/main.css'%}" />
+
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+
+
+    <nav class="bg bg-success">
+
+      <a class="logo" href="/">
+        <i class="fas fa-user-circle"></i>&nbsp;Appointment Platform
+      </a>
+      <p class="feature-link m-0 p-0">
+      {% if request.user.is_authenticated %}
+      <a href ="{% url 'logout' %}" class = "mr-4 text-white">
+      <i class="fas fa-sign-in-alt"></i> &nbsp; Logout
+      </a>
+      <a href ="{% url 'viewalloc' %}" class = "mr-4 text-white">
+      <i class="fas fa-sign-in-alt"></i> &nbsp; View Appointment
+      </a>
+      <a href ="{% url 'alloc' %}" class = "mr-4 text-white">
+      <i class="fas fa-sign-in-alt"></i> &nbsp; Request Appointment
+      </a>
+      {% else %}
+      <a href ="{% url 'login' %}" class = "mr-4 text-white">
+      <i class="fas fa-sign-in-alt"></i> &nbsp; Login
+      </a>
+      </a>
+      {% endif %}
+      {% comment %} <a href ="" class = "mr-4 text-white">
+      <i class="fas fa-user-plus"></i> &nbsp; Sign Up
+      </a>
+      <a href ="" class = "mr-4 text-white">
+      <i class="fas fa-plus"></i> &nbsp; Add Contact
+      </a> {% endcomment %}
+      </p>
+    </nav>
+    <!-- Navbar ends -->
+    <br />
+    {% comment %} {% include 'partials/_message.html' %} {% endcomment %}
+    <div class="container">
+    <h3 class="heading font-weight-light text-center text-default"> <br> Patient-Doctor Appointment Platform</h3>
+    {% comment %} <center> <img src="{% static 'images/fud.jpg'%}" class="log" /></center> {% endcomment %}
+    {% comment %} {{contacts}} {% endcomment %}
+    <hr />
+    {% include 'partials/_message.html' %}
+    </div>
+    <!-- Main Section -->
+    {% block content %}
+    {% endblock content %}
+    <!-- Main Section ends-->
+
+    <!-- footer -->
+    <footer class="mt-4 p-2 bg bg-success">
+      <p class="text-center p-1 m-0">&copy; 2021 </p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- footer ends -->
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{% load static %}
+    <!-- Card for details -->
+    {% comment %} male card start {% endcomment %}
+    <div class="card my-2 mx-2 boy-card>
+      <div class="card-header">
+        <a href="{% url 'viewalloc' project.id %}" class="text-white header-link"
+          ><i class="fas fa-mars mr-2"></i> {{project.name}} </a>
+      </div>
+      <div class="card-body pb-0">
+        <p>
+          <i class="fas fa-at mr-2"></i>
+          <a href="mailto:{{project.email}}">{{project.department}}</a>
+        </p>
+        <p><i class="fas fa-info-circle mr-2"></i> {{project.projecttype}}</p>
+      </div>
+    </div>
+    {% comment %} male card ends {% endcomment %}
+    <!-- Card for details ends -->

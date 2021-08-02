@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ patient.name }}
+{% endblock title %}
+
+{% block content %}
+
+<div class="container main-part">
+
+{% if  patients %}
+{% for patient in patients %}
+
+    <div class="card boy-card">
+      <div class="card-header">
+      <span class="text-white header-link">{{patient.name}}</span>
+      </div>
+      <div class="card-body pb-0">
+        <p><span>Email: <br></span>{{patient.email}}</a></p>
+        <p> Patient ID: <br></span> {{patient.patient_id}}</p>
+        <p> Patient Name: <br></span>{{patient.name}}</p>
+        <p> Patient Email: <br></span>{{patient.email}}</p>
+        <p> Doctor: <br></span>{{patient.doctor}}</p>
+        <p> Date: <br></span>{{patient.date}}</p>
+        <p> Time: <br></span>{{patient.choose_time}}</p>
+        <p> Doctor Feedback: <br></span>{{patient.doctor_feedback}}</p>
+        <p> Doctor Comment: <br></span>{{patient.doctor_comment}}</p>
+        <p> Appointment Status: <br></span>
+        
+        {% if patient.status == "Appointment Accepted" %}
+        <button class="btn btn-success">{{patient.status}} <p>You can proceed to see your doctor</p></button>
+        {% elif patient.status == "Appointment under Review" %}
+        <button class="btn btn-info">{{patient.status}}</button>
+        {% else %}
+        <button class="btn btn-danger">{{patient.status}}</button>
+        {% endif %}
+        <p>Have the patient been attended to: <br></span>{{patient.patient_attended_to}}</p>
+
+        
+        
+        
+        </p>
+      </div>
+    </div>
+{% endfor %}
+{% else %}
+You do not have appointment yet
+{% endif %}
+
+
+    
+</div>
+
+{% endblock content %}
+  
