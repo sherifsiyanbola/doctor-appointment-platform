@@ -1,2 +1,1 @@
-# Sudent-Project-Alloc
-Project-Supervisor Allocation system
+Patient-Doctor-Appointment Platform
